@@ -2,7 +2,7 @@ version: '3'
 services:
   manager:
     build:
-        context: .
+        context: ./manager
         dockerfile: "Dockerfile.dev"
     ports:
         - "8000:8000"
