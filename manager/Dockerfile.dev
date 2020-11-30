@@ -1,0 +1,14 @@
+FROM python:3.8
+
+RUN pip3 install psycopg2
+ADD utils_postgres.py . 
+ADD tests_integration.py . 
+ADD __main__.py . 
+ADD config.py . 
+ADD __init__.py . 
+RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -P /
+RUN chmod +x /wait-for-it.sh
+ENTRYPOINT ["/wait-for-it.sh", "db:5432", "--"]
+
+#EXPOSE 80
+#CMD ["python", "-m", "manager"]
