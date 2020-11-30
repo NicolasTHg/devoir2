@@ -6,9 +6,9 @@ ADD tests_integration.py .
 ADD __main__.py . 
 ADD config.py . 
 ADD __init__.py . 
+
+
+CMD ["python", "-m", "manager"]
 RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -P /
 RUN chmod +x /wait-for-it.sh
 ENTRYPOINT ["/wait-for-it.sh", "db:5432", "--"]
-
-#EXPOSE 80
-#CMD ["python", "-m", "manager"]
